@@ -1,4 +1,5 @@
 .idea/
+docs/
 cmake-build-debug/
 bmptk_fixed_size_stack.c
 *.o

@@ -7,12 +7,58 @@
 //
 // ==========================================================================
 
+
+
 #ifndef IPASS_MOTION_SENSOR_HPP
 #define IPASS_MOTION_SENSOR_HPP
 
 #include "vector3.hpp"
 #include "motion_rule.hpp"
 
+/**
+ * \mainpage
+ * \author Lex Ruesink (lex.ruesink@student.hu.nl)
+ * \version 1.0
+ * \copyright boost license
+ *
+ * -------------------------------------------------------------------------
+ *
+ * This library is created for the ipass project of year 2017-2018.
+ * With this library gyroscope and accelerometer data can be used
+ * to detect motion and gestures in a simple, abstracted matter.
+ *
+ * The library offers a simple yet flexible api for using and
+ * extending sensors, motions and library behaviour.
+ *
+ * The entire library is written in C++ OO fashion with C++ 14.
+ * The library is dependent on hwlib (https://github.com/wovo/hwlib, © Wouter van Ooijen).
+ *
+ * GitHub: https://github.com/LRstudentHU/ipass
+ */
+
+/**
+ * \page use Use
+ * For usage examples of the library, please see the
+ * demo on the github.
+ *
+ * The library is a layer between the presentation layer and the
+ * hardware layer. The library user is responsible for providing
+ * a hardware implementation for the sensor used.
+ *
+ * With the library, motions are detected using combinations of rules.
+ * When a rule is detected, a registered function is called.
+ * Usage of the rules/callback system is not required to gain from this library;
+ * using the abstraction layer and interpreting the gyroscope/accelerometer can provide
+ * value in itself.
+ */
+
+/**
+ * \brief
+ * ipass namespace
+ * \details
+ * The ipass namespace contains all library
+ * related code for the ipass project.
+ */
 namespace ipass {
 
     /**
@@ -25,14 +71,14 @@ namespace ipass {
      */
     class motion_handler {
         friend class motion_sensor;
-        
+
     public:
         using func = void (*)(const vector3<int16_t> &, const vector3<int16_t> &);
 
     private:
         func function;
         motion_rule *rule;
-        
+
     public:
         /**
          * \brief
@@ -53,7 +99,7 @@ namespace ipass {
          * @param function
          */
         motion_handler(motion_rule &rule, func function);
-        
+
         /**
          * \brief
          * Check if this handler is free (empty).
