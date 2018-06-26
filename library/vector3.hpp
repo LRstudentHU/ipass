@@ -95,13 +95,11 @@ namespace ipass {
         vector3<double> normalized() const {
             double len = length();
 
-            vector3<double> result = {
-                    double(x) / len,
-                    double(y) / len,
-                    double(z) / len
+            return {
+                double(x) / len,
+                double(y) / len,
+                double(z) / len
             };
-
-            return result;
         }
 
         /* Division */
