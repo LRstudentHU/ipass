@@ -1,0 +1,25 @@
+# ==========================================================================
+# Copyright (c) Lex Ruesink (lex.ruesink@student.hu.nl) 2018
+#
+# Distributed under the Boost Software License, Version 1.0.
+# (See accompanying file LICENSE_1_0.txt or copy at
+# http://www.boost.org/LICENSE_1_0.txt)
+#
+# ==========================================================================
+
+# source files in this project (main.cpp is automatically assumed)
+SOURCES := tests/main.test.cpp motion_sensor.cpp vector3.cpp motion_rule.cpp tests/mock_sensor.cpp
+
+# header files in this project
+HEADERS := motion_sensor.hpp vector3.hpp motion_rule.hpp tests/mock_sensor.hpp
+
+# other places to look for files for this project
+SEARCH  :=
+
+DEFINES += -DIN_TEST_SUITE
+
+# set RELATIVE to the next higher directory
+# and defer to the appropriate Makefile.due.link.* there
+RELATIVE := ..
+include $(RELATIVE)/Makefile.native.link
+

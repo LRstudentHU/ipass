@@ -1,0 +1,8 @@
+.idea/
+cmake-build-debug/
+bmptk_fixed_size_stack.c
+*.o
+*.map
+*.bin
+*.ld
+*.elf
